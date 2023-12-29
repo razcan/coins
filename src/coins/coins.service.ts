@@ -12,7 +12,7 @@ import { createReadStream } from 'fs';
 import { join } from 'path';
 import { StocksService } from 'src/stocks/stocks.service';
 import { Stock } from 'src/stocks/entities/stock.entity';
-
+import * as path from 'path';
 
 
 @Injectable()
@@ -28,7 +28,10 @@ export class CoinsService {
 
 
   async deletePicture(@Param('fileName') fileName: string) {
-   await fs.unlink(`./upload/${fileName}`, (err) => {
+  // const folderPath = path.join(__dirname, 'upload');
+  const folderPath = '/Users/razvanmustata/Projects/coins/coins-backend/UploadPhotos'
+
+   await fs.unlink(`${folderPath}/${fileName}`, (err) => {
     if (err) {
      console.error(err);
      return err;    

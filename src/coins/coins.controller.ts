@@ -108,7 +108,8 @@ uploadFiles(@UploadedFiles() files, @Body() createCoinDto: any,
 
   @Get('download/:filename')
   downloadFile(@Param('filename') filename: string, @Res() res: Response) {
-    const fileStream = createReadStream(`./upload/${filename}`);
+    const folderPath = '/Users/razvanmustata/Projects/coins/coins-backend/UploadPhotos'
+    const fileStream = createReadStream(`${folderPath}/${filename}`);
     fileStream.pipe(res);
   }
 
