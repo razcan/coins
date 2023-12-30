@@ -20,3 +20,16 @@ END;
 INSERT INTO user_ent
 (userId, createdat, username, password, "role", name, avatar)
 VALUES(0, datetime('now'), 'razvan', 'a', 'admin', 'razvan', 'na');
+
+
+echo "# b" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/razcan/b.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin https://github.com/razcan/b.git
+git branch -M main
+git push -u origin main

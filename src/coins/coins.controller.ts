@@ -57,7 +57,7 @@ export class CoinsController {
 @Post('uploadm')
 @HttpCode(201)
 @UseInterceptors(FilesInterceptor('files'))
-uploadFiles(@UploadedFiles() files, @Body() createCoinDto: any,
+uploadFiles(@UploadedFiles() files, @Body() createCoinDto: CreateCoinDto,
 @Body() createFileDto: CreateFileInfoDTO[],
 @Res() res: Response
 ) {
