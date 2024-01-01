@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param,Header,HttpStatus,
- Delete, UploadedFile, UploadedFiles, HttpException, HttpCode,  Request, UseGuards } from '@nestjs/common';
+ Delete, UploadedFile, UploadedFiles, HttpException, HttpCode,  Request, UseGuards ,UsePipes,ValidationPipe  } from '@nestjs/common';
 import { CoinsService } from './coins.service';
 import { CreateCoinDto } from './dto/create-coin.dto';
 import { CreateFileInfoDTO } from './dto/create-fileinfo.dto'
@@ -19,6 +19,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { AuthGuard } from '../auth/auth.guard'
 import { StocksService } from 'src/stocks/stocks.service';
+// import  {ValidationPipe} from './pipes/validation.pipe';
 
 
 @Controller('coins')
@@ -55,6 +56,7 @@ export class CoinsController {
 
 // @UseGuards(AuthGuard)
 @Post('uploadm')
+// @UsePipes(new ValidationPipe({ transform: true })) // enable automatic validation and transformation
 @HttpCode(201)
 @UseInterceptors(FilesInterceptor('files'))
 uploadFiles(@UploadedFiles() files, @Body() createCoinDto: CreateCoinDto,
