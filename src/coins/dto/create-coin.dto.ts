@@ -45,6 +45,7 @@ export class CreateCoinDto {
     @IsDefined()
     Status: string;	
     
+    @IsNumberString()
     @IsNotEmpty()
     @IsDefined()
     Price: number;	
@@ -69,10 +70,22 @@ export class CreateCoinDto {
 
     @IsOptional()
     @IsNumberString()
+    @MinLength(4, {
+        message: 'Start Year should have 4 number charactes',
+      })
+    @MaxLength(4, {
+        message: 'Start Year should have 4 number charactes',
+     })
     StartDate: number ;
 
     @IsOptional()
     @IsNumberString()
+    @MinLength(4, {
+        message: 'End Year should have 4 number charactes',
+      })
+    @MaxLength(4, {
+        message: 'End Year should have 4 number charactes',
+     })
     EndDate: number ;	 
  
 }

@@ -56,7 +56,7 @@ export class CoinsController {
 
 // @UseGuards(AuthGuard)
 @Post('uploadm')
-// @UsePipes(new ValidationPipe({ transform: true })) // enable automatic validation and transformation
+@UsePipes(new ValidationPipe({ transform: true })) // enable automatic validation and transformation
 @HttpCode(201)
 @UseInterceptors(FilesInterceptor('files'))
 uploadFiles(@UploadedFiles() files, @Body() createCoinDto: CreateCoinDto,
